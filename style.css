@@ -1,0 +1,246 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+:root{
+  --bg: rgb(238, 218, 238);
+  --dark: linear-gradient(to bottom, rgb(148, 58, 148), rgb(133, 51, 133));
+  --dark-hover: rgb(124, 48, 124);
+  --line: rgb(175, 88, 175);
+  --light: rgb(254, 223, 254);
+  --selected: rgb(126, 13, 126);
+  --shadow: rgb(195, 154, 195);
+}
+.container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.frame{
+  background: white;
+  height: 80%;
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  border-radius: 20px;
+  position: relative;
+  overflow: auto;
+  box-shadow: 0 0 20px var(--shadow);
+}
+.sidebar{
+  flex: 1;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.note{
+  flex: 2;
+}
+.sidebar-header{
+  text-align: center;
+  padding: 20px;
+  color: var(--light);
+  font-size: 26px;
+}
+.notes-list{
+  width: 100%;
+  overflow-y: auto;
+}
+.notes-list::-webkit-scrollbar{
+  width: 10px;
+  background-color: var(--line);
+}
+.notes-list::-webkit-scrollbar-thumb{
+  background-color: rgb(213, 176, 213);
+}
+.notes{
+  padding: 15px 20px;
+  width: 100%;
+  font-size: 18px;
+  color: var(--light);
+  cursor: pointer;
+  border-top: 1px solid var(--line);
+  transition: 0.2s;
+}
+.notes:last-child{
+  border-bottom: 1px solid var(--line);
+}
+.notes:not(.selected):hover{
+  background: var(--dark-hover);
+}
+.selected{
+  background-color: var(--selected);
+  cursor: default;
+}
+.note-header{
+  padding: 20px 30px 10px;
+  font-size: 26px;
+  font-weight: 700;
+  width: fit-content;
+  text-align: left;
+  color: var(--dark-hover);
+  outline: none;
+}
+.note-header input{
+  outline: none;
+  border: none;
+  font-size: 26px;
+  color: var(--line);
+}
+.note-header-frame{
+  height: 72px;
+}
+.note-header::after{
+  content: "";
+  display: block;
+  background-color: var(--dark-hover);
+  height: 2px;
+  width: 100%;
+}
+.note-content{
+  height: calc(100% - 142px);
+  width: 100%;
+  padding: 0 30px 20px;
+  outline: none;
+  overflow: auto;
+  color: var(--line);
+}
+.note-content::-webkit-scrollbar{
+  width: 10px;
+  background-color: rgb(203, 202, 202);
+}
+.note-content::-webkit-scrollbar-thumb{
+  background-color: var(--line);
+}
+textarea{
+  border: 1px solid var(--line);
+  resize: none;
+  outline: 0;
+  padding: 5px;
+  width: 100%;
+  height: 90%;
+  color: gray;
+}
+.default{
+  color: var(--dark-hover);
+  padding: 150px 50px;
+  font-size: 26px;
+  line-height: 40px;
+}
+.add{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: var(--dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.info{
+  font-size: 14px;
+  position: absolute;
+  color: white;
+  transform: translateY(-40px);
+  background-color: var(--line);
+  padding: 4px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.2s;
+  cursor: default;
+}
+.info-tri{
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  bottom: 0;
+  transform: translateY(100%);
+  border: 6px solid;
+  border-color: var(--line) transparent transparent transparent;
+}
+.add:hover > .info{
+  opacity: 1;
+}
+.add img{
+  width: 60%;
+  filter: invert();
+}
+/* Register Page */
+.register-frame{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid var(--dark-hover);
+}
+.register-frame .register-header{
+  margin: 0 auto 20px;
+  color: var(--line);
+}
+.input-frame{
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px;
+}
+.input-frame input{
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--dark-hover);
+  background-color: transparent;
+  width: 200px;
+  color: var(--dark-hover);
+  transition: 0.4s;
+}
+.input-frame input:focus + label, .valued-input{
+  font-size: 10px !important;
+  transform: translateY(-15px);
+}
+.input-frame input:invalid{
+  border-color: red;
+}
+.input-frame label{
+  position: absolute;
+  color: var(--line);
+  z-index: 1;
+  left: 10px;
+  font-size: 14px;
+  cursor: text;
+  transition: 0.4s;
+}
+#submit{
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  padding: 5px 10px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--line);
+  display: block;
+  margin: 10px auto 0px;
+}
+.already{
+  margin: 20px auto 0;
+  font-size: 14px;
+  color: var(--line);
+}
+.already a{
+  color: var(--dark-hover);
+}
+.already a:visited{
+  color: var(--dark-hover);
+}

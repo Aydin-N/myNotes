@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="note-script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="frame">
+      <div class="sidebar">
+        <h1 class="sidebar-header">My Notes</h1>
+        <div class="notes-list">
+        </div>
+      </div>
+      <div class="note">
+        <div class="note-header-frame">
+          <div class="note-header" id="note-header" spellcheck="false">
+          </div>
+        </div>
+        <div class="note-content default" id="note-content" spellcheck="false">
+          Choose a note from "My Notes", or create a new one by clicking "+" button.
+        </div>
+      </div>
+      <div class="add" style="right: 80px; display: none;" id="edit">
+        <img src="images/pen.png" alt="edit">
+        <div class="info">
+          Edit
+          <div class="info-tri"></div>
+        </div>
+      </div>
+      <div class="add" id="add">+
+        <div class="info">
+          Create
+          <div class="info-tri"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
